@@ -1,6 +1,9 @@
 name: Deploy Jekyll site to GitHub Pages
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -14,6 +17,7 @@ concurrency:
 
 jobs:
   build:
+    if: github.repository != 'AmberHeart/homepage-template-public'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,6 +37,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
 
   deploy:
+    if: github.repository != 'AmberHeart/homepage-template-public'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

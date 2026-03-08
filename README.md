@@ -1,108 +1,201 @@
 <h1 align="center">
-Homepage Template
+Amber-Homepage
 </h1>
 
 <div align="center">
 
-An agent-friendly Jekyll homepage template for academic and professional profiles.
+A coding agent friendly academic homepage template based on [RayeRen/acad-homepage.github.io](https://github.com/RayeRen/acad-homepage.github.io).
 
-[中文文档](./docs/README-zh.md)
 </div>
 
 <p align="center">
-  <img src="docs/template-preview.svg" width="100%" alt="Template preview" />
+  <img src="docs/template-homepage.png" width="100%" alt="Amber-Homepage template preview" />
 </p>
 
-## Why this repo exists
+## What this repo is
 
-This repository is the **public template release** extracted from a private, continuously customized personal homepage.
+This repository is a **public academic homepage template** extracted and cleaned up from a heavily customized private personal site.
 
-- It keeps the reusable layout, sections, and deployment workflow.
-- It removes private content, private data exports, and personal-only assets.
-- It is designed to be easy for both humans and coding agents to adapt.
+It keeps the homepage structure, visual interactions, collapsible project folder, sidebar CV button, publication cards, and academic-page layout patterns, while removing personal-only content and private assets.
 
 ## Reference links
 
 - Personal production site: https://amberheart.github.io/
 - Original public homepage base repo: https://github.com/RayeRen/acad-homepage.github.io
+- Coding-agent handoff guide: `docs/agent-setup.md`
 
-The personal site above contains real content and ongoing private customizations. This template repository ships with placeholder content only.
+## What you get
 
-## Visual reference
-
-### Template snapshot
-
-![Template homepage screenshot](docs/template-homepage.png)
-
-## What this template includes
-
-- Single-page homepage with sidebar profile and anchored navigation
-- Sections for About, News, Experience, Education, Publications, Projects, Awards, and Service
-- Optional Google Scholar citation sync via GitHub Actions
-- Optional CV download entry and media placeholders
-- Optional GitHub Pages deployment workflow
-- Public-safe placeholder content for quick forking and remixing
+- Single-page academic homepage with anchored navigation
+- Sidebar profile with social links and a downloadable CV button
+- News timeline, internships, education, publications, projects, honors, and services sections
+- Hoverable paper/project cards and collapsible selected-projects folder
+- Optional Google Scholar citation workflow
+- GitHub Pages deployment workflow for forks
+- Public-safe placeholder content that is ready to replace
 
 ## Quick start
 
-Need a coding-agent-oriented handoff? See [`docs/agent-setup.md`](./docs/agent-setup.md).
-
-
 1. Fork this repository.
-2. If you want a GitHub user site, rename the repo to `USERNAME.github.io`.
-3. If you keep it as a project repo, set `url` and `baseurl` in `_config.yml`.
-4. Update `_config.yml` with your name, bio, links, avatar, and optional CV path.
-4. Replace the sample content in `_pages/about.md`.
-5. Replace placeholder assets in `images/`, `videos/`, and `CV/` as needed.
-6. Run the site locally and verify the generated `_site` output.
-7. If you want public hosting, enable GitHub Pages for your own fork and then run the Pages workflow manually.
+2. Decide whether your site will be:
+   - a **user site**: rename the fork to `USERNAME.github.io`
+   - a **project site**: keep the repo name and set `url` / `baseurl` in `_config.yml`
+3. Replace the placeholder identity fields in `_config.yml`.
+4. Replace the placeholder homepage content in `_pages/about.md`.
+5. Replace placeholder assets in `images/` and `CV/`.
+6. Run the site locally and confirm the build.
+7. Enable GitHub Pages in **your own fork**, then push to `main`.
+
+## Required fields to fill
+
+These are the minimum fields most users should update before publishing.
+
+### `_config.yml`
+
+At minimum, review these keys:
+
+- `title`
+- `description`
+- `repository`
+- `url`
+- `baseurl`
+- `author.name`
+- `author.avatar`
+- `author.bio`
+- `author.location`
+- `author.email`
+- `author.github`
+- `author.linkedin` (optional)
+- `author.googlescholar` (optional)
+- `author.cv`
+
+Default behavior:
+
+- `author.cv` is already set to `CV/CV.pdf`
+- the repo includes a placeholder `CV/CV.pdf`
+- replace that file with your own exported CV when ready
+
+### `_pages/about.md`
+
+This file controls the visible homepage content. The template already includes the full section structure.
+
+Replace the placeholder text in these sections:
+
+- About Me
+- News
+- Internships
+- Education
+- Publications
+- Projects
+- Honors and Awards
+- Services
+
+If you do not need a section, remove or simplify it — but the default structure is designed to match a modern academic homepage layout.
+
+### `images/`
+
+You will likely want to replace:
+
+- avatar image
+- organization / school logos
+- publication thumbnails
+- project thumbnails
+
+### `CV/`
+
+The template ships with:
+
+- `CV/CV.tex` — placeholder LaTeX skeleton
+- `CV/CV.pdf` — placeholder downloadable PDF
+
+Replace either or both with your own materials.
 
 ## Local development
+
+Install dependencies and run locally:
 
 ```bash
 bundle install
 bash run_server.sh
 ```
 
-Open `http://127.0.0.1:4000` in your browser.
+Then open:
 
-To validate a production-style build:
+```text
+http://127.0.0.1:4000
+```
+
+To run a production-style build check:
 
 ```bash
 bundle exec jekyll build
 ```
 
-## Optional Google Scholar setup
+The generated static site will be written to `_site/`.
 
-If you want automatic citation data:
+## Deployment
+
+### For a fork that should auto-deploy on push
+
+1. Fork this repository.
+2. In your fork, enable **GitHub Pages** and select **GitHub Actions** as the build source.
+3. Push changes to `main`.
+4. The deployment workflow will run automatically in your fork.
+
+### User site vs project site
+
+#### User site
+
+Use this when your repository name is `USERNAME.github.io`.
+
+Typical config:
+
+```yaml
+url: "https://USERNAME.github.io"
+baseurl: ""
+```
+
+#### Project site
+
+Use this when your repository name is something like `my-homepage`.
+
+Typical config:
+
+```yaml
+url: "https://USERNAME.github.io"
+baseurl: "/my-homepage"
+```
+
+If your images, CV link, or static assets load incorrectly after deployment, check `url` and `baseurl` first.
+
+## Google Scholar workflow
+
+This repository includes an optional citation workflow.
+
+If you want automatic citation data updates:
 
 1. Find your Google Scholar user ID.
-2. Add `GOOGLE_SCHOLAR_ID` in `Settings -> Secrets and variables -> Actions`.
-3. Enable `.github/workflows/google_scholar_crawler.yaml`.
-4. Optionally show citation counts in your own content with:
+2. Add `GOOGLE_SCHOLAR_ID` to your fork's GitHub Actions secrets.
+3. Push changes or run the workflow manually.
 
-   ```html
-   <span class='show_paper_citations' data='YOUR_PAPER_ID'></span>
-   ```
+If the secret is missing, the workflow exits successfully without crawling.
 
-If the secret is not configured, the workflow is skipped.
+## Notes for coding agents
 
-## Files you will likely edit first
+If you want a coding agent to customize the site for you, start with:
 
-- `_config.yml` — site metadata, author profile, social links, optional CV path
-- `_pages/about.md` — homepage structure and section content
-- `images/` — avatar, logos, project thumbnails, favicon assets
-- `videos/` — optional demo clips for projects or papers
-- `CV/` — optional CV source and exported PDF
+- `docs/agent-setup.md`
+- `_config.yml`
+- `_pages/about.md`
+
+The template is structured so an agent can replace identity, content, assets, and deployment settings without needing access to any private source repository.
 
 ## Reuse and attribution
 
-This template supports heavy customization and remixing, but reuse should keep the relevant upstream attribution.
+This template supports heavy customization and remixing, but please keep the relevant upstream attribution when redistributing substantial portions.
 
-- Original public homepage base repo: [RayeRen/acad-homepage.github.io](https://github.com/RayeRen/acad-homepage.github.io)
-- CV format inspiration and original LaTeX source lineage: Jake Gutierrez's "Jake's Resume"
-
-If you redistribute substantial portions of this template or derived templates, keep the upstream license and attribution notices.
+- Homepage base: [RayeRen/acad-homepage.github.io](https://github.com/RayeRen/acad-homepage.github.io)
+- CV lineage: Jake Gutierrez's "Jake's Resume"
 
 ## License
 
