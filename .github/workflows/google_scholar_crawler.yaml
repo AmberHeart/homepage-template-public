@@ -1,32 +1,56 @@
 name: Get Citation Data
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: '0 8 * * *'
   workflow_dispatch:
 
 jobs:
   build:
-    if: ${{ secrets.GOOGLE_SCHOLAR_ID != '' }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Check Google Scholar secret
+        id: scholar
+        shell: bash
+        env:
+          GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+        run: |
+          if [ -z "${GOOGLE_SCHOLAR_ID}" ]; then
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "GOOGLE_SCHOLAR_ID is not configured; skipping crawl."
+          else
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/checkout@v4
+        if: steps.scholar.outputs.enabled == 'true'
+
       - name: Setup Python
+        if: steps.scholar.outputs.enabled == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
       - name: Install Dependencies
+        if: steps.scholar.outputs.enabled == 'true'
         run: |
           cd ./google_scholar_crawler
           pip install -r requirements.txt
+
       - name: Crawl Google Scholar
+        if: steps.scholar.outputs.enabled == 'true'
         run: |
           cd ./google_scholar_crawler
           python main.py
         env:
           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+
       - name: Commit and Push
+        if: steps.scholar.outputs.enabled == 'true'
         run: |
           cp ./google_scholar_crawler/results/*.json ./google_scholar_data/
           git config --local user.name "${GITHUB_ACTOR}"

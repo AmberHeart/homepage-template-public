@@ -28,6 +28,16 @@ Homepage Template
 
 上面的在线示例站点包含真实个人内容和持续魔改，不代表这个 public repo 会公开对应的私有源码仓库。
 
+## 展示图
+
+### 模板截图
+
+![Template homepage screenshot](./template-homepage.png)
+
+### 我的主页截图
+
+![AmberHeart homepage screenshot](./live-demo-homepage.png)
+
 ## 模板包含什么
 
 - 单页主页布局，带侧边栏个人信息和锚点导航
@@ -92,7 +102,7 @@ bundle exec jekyll build
 
 这个模板支持较大幅度的二次魔改，但复用时应保留相关上游来源标注。
 
-- 主页模板基础：`RayeRen/acad-homepage.github.io`
+- 原始公开主页仓库地址：`https://github.com/RayeRen/acad-homepage.github.io`
 - CV 版式灵感与原始 LaTeX 来源链路：Jake Gutierrez 的 `Jake's Resume`
 
 如果你分发本模板或其衍生模板的主要部分，请保留上游许可证和来源说明。

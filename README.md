@@ -28,6 +28,16 @@ This repository is the **public template release** extracted from a private, con
 
 The deployed example above contains real personal content and ongoing customizations. This template repository does **not** include the private source repository behind that site.
 
+## Visual reference
+
+### Template snapshot
+
+![Template homepage screenshot](docs/template-homepage.png)
+
+### Live personal site snapshot
+
+![AmberHeart homepage screenshot](docs/live-demo-homepage.png)
+
 ## What this template includes
 
 - Single-page homepage with sidebar profile and anchored navigation
@@ -92,7 +102,7 @@ If the secret is not configured, the workflow is skipped.
 
 This template supports heavy customization and remixing, but reuse should keep the relevant upstream attribution.
 
-- Homepage base: [RayeRen/acad-homepage.github.io](https://github.com/RayeRen/acad-homepage.github.io)
+- Original public homepage base repo: [RayeRen/acad-homepage.github.io](https://github.com/RayeRen/acad-homepage.github.io)
 - CV format inspiration and original LaTeX source lineage: Jake Gutierrez's "Jake's Resume"
 
 If you redistribute substantial portions of this template or derived templates, keep the upstream license and attribution notices.
