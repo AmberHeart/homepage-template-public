@@ -60,6 +60,8 @@ Need a coding-agent-oriented handoff? See [`docs/agent-setup.md`](./docs/agent-s
 5. Replace placeholder assets in `images/`, `videos/`, and `CV/` as needed.
 6. Run the site locally, verify the build, then publish with GitHub Pages.
 
+If the first Pages deployment of a brand-new repository fails with a Pages enablement error, enable Pages once in the repository settings or via `gh api` and rerun the workflow.
+
 ## Local development
 
 ```bash

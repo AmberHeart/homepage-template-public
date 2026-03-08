@@ -60,6 +60,8 @@ Homepage Template
 5. 按需替换 `images/`、`videos/`、`CV/` 下的占位资源。
 6. 本地运行并验证后，再发布到 GitHub Pages。
 
+如果全新仓库的第一次 Pages 部署因为 enablement / permissions 报错，先在仓库设置里启用一次 Pages，或通过 `gh api` 创建 Pages site，然后 rerun workflow。
+
 ## 本地开发
 
 ```bash
