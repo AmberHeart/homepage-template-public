@@ -1,0 +1,30 @@
+<script>
+  $(document).ready(function () {
+    $.getJSON("{{ '/google_scholar_data/gs_data.json' | relative_url }}")
+      .done(function (data) {
+        if (!data || typeof data !== "object") {
+          return;
+        }
+
+        var totalEl = document.getElementById("total_cit");
+        if (totalEl && typeof data.citedby !== "undefined") {
+          totalEl.innerHTML = data.citedby;
+        }
+
+        var publications = data.publications || {};
+        var citationEles = document.getElementsByClassName("show_paper_citations");
+        Array.prototype.forEach.call(citationEles, function (element) {
+          var paperId = element.getAttribute("data");
+          if (!paperId || !publications[paperId]) {
+            return;
+          }
+          var numCitations = publications[paperId].num_citations;
+          if (typeof numCitations !== "undefined") {
+            element.innerHTML = "| Citations: " + numCitations;
+          }
+        });
+      })
+      .fail(function () {
+      });
+  });
+</script>

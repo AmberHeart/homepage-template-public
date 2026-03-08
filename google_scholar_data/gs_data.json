@@ -1,0 +1,19 @@
+{
+  "container_type": "Author",
+  "filled": ["basics", "indices", "counts", "publications"],
+  "scholar_id": "YOUR_GOOGLE_SCHOLAR_ID",
+  "source": "TEMPLATE_PLACEHOLDER",
+  "name": "Your Name",
+  "affiliation": "Your Institution",
+  "interests": ["Research Area 1", "Research Area 2"],
+  "homepage": "https://your-site.example",
+  "citedby": 0,
+  "publications": {},
+  "citedby5y": 0,
+  "hindex": 0,
+  "hindex5y": 0,
+  "i10index": 0,
+  "i10index5y": 0,
+  "cites_per_year": {},
+  "updated": "Template placeholder"
+}
