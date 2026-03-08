@@ -21,12 +21,12 @@ This repository is the **public template release** extracted from a private, con
 - It removes private content, private data exports, and personal-only assets.
 - It is designed to be easy for both humans and coding agents to adapt.
 
-## Live demo
+## Reference links
 
-- Production example: https://amberheart.github.io/
-- Template repository: this public repo ships with placeholder content only
+- Personal production site: https://amberheart.github.io/
+- Original public homepage base repo: https://github.com/RayeRen/acad-homepage.github.io
 
-The deployed example above contains real personal content and ongoing customizations. This template repository does **not** include the private source repository behind that site.
+The personal site above contains real content and ongoing private customizations. This template repository ships with placeholder content only.
 
 ## Visual reference
 
@@ -34,17 +34,13 @@ The deployed example above contains real personal content and ongoing customizat
 
 ![Template homepage screenshot](docs/template-homepage.png)
 
-### Live personal site snapshot
-
-![AmberHeart homepage screenshot](docs/live-demo-homepage.png)
-
 ## What this template includes
 
 - Single-page homepage with sidebar profile and anchored navigation
 - Sections for About, News, Experience, Education, Publications, Projects, Awards, and Service
 - Optional Google Scholar citation sync via GitHub Actions
 - Optional CV download entry and media placeholders
-- GitHub Pages deployment workflow
+- Optional GitHub Pages deployment workflow
 - Public-safe placeholder content for quick forking and remixing
 
 ## Quick start
@@ -58,9 +54,8 @@ Need a coding-agent-oriented handoff? See [`docs/agent-setup.md`](./docs/agent-s
 4. Update `_config.yml` with your name, bio, links, avatar, and optional CV path.
 4. Replace the sample content in `_pages/about.md`.
 5. Replace placeholder assets in `images/`, `videos/`, and `CV/` as needed.
-6. Run the site locally, verify the build, then publish with GitHub Pages.
-
-If the first Pages deployment of a brand-new repository fails with a Pages enablement error, enable Pages once in the repository settings or via `gh api` and rerun the workflow.
+6. Run the site locally and verify the generated `_site` output.
+7. If you want public hosting, enable GitHub Pages for your own fork and then run the Pages workflow manually.
 
 ## Local development
 

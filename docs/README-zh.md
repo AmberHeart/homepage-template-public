@@ -21,12 +21,12 @@ Homepage Template
 - 去掉了私有内容、私有数据导出和仅个人可用的素材。
 - 默认面向人类用户和 coding agent 都能快速接手。
 
-## 在线示例
+## 参考链接
 
-- 真实部署示例：https://amberheart.github.io/
-- 模板仓库本身：只提供公开安全的占位内容
+- 我的真实个人主页：https://amberheart.github.io/
+- 原始公开主页仓库地址：https://github.com/RayeRen/acad-homepage.github.io
 
-上面的在线示例站点包含真实个人内容和持续魔改，不代表这个 public repo 会公开对应的私有源码仓库。
+上面的个人主页包含真实内容和持续魔改；这个 public template repo 只提供公开安全的占位内容。
 
 ## 展示图
 
@@ -34,17 +34,13 @@ Homepage Template
 
 ![Template homepage screenshot](./template-homepage.png)
 
-### 我的主页截图
-
-![AmberHeart homepage screenshot](./live-demo-homepage.png)
-
 ## 模板包含什么
 
 - 单页主页布局，带侧边栏个人信息和锚点导航
 - About、News、Experience、Education、Publications、Projects、Awards、Service 等常用区块
 - 可选 Google Scholar 引用统计同步
 - 可选 CV 下载入口和媒体占位资源
-- GitHub Pages 部署工作流
+- 可选 GitHub Pages 部署工作流
 - 适合 fork 和二次魔改的中性占位内容
 
 ## 快速开始
@@ -58,9 +54,8 @@ Homepage Template
 4. 修改 `_config.yml`，填入你的姓名、简介、链接、头像和可选 CV 路径。
 4. 修改 `_pages/about.md` 中的示例内容。
 5. 按需替换 `images/`、`videos/`、`CV/` 下的占位资源。
-6. 本地运行并验证后，再发布到 GitHub Pages。
-
-如果全新仓库的第一次 Pages 部署因为 enablement / permissions 报错，先在仓库设置里启用一次 Pages，或通过 `gh api` 创建 Pages site，然后 rerun workflow。
+6. 本地运行并验证生成出来的 `_site` 目录。
+7. 如果你需要公开托管，请在你自己的 fork 中启用 GitHub Pages，并手动运行 Pages workflow。
 
 ## 本地开发
 
